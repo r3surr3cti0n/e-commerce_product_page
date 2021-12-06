@@ -93,14 +93,17 @@ body {
 .cart-box {
 	&:hover .cart {
 		visibility: visible;
+		z-index: 200;
 	}
 }
 
 // Max-width and margin-left is tricky
 .cart {
-	font-size: 0.7rem;
+	font-size: 0.85rem;
 	width: 100%;
 	max-width: 20%;
+	max-height: 80vh;
+	overflow-y: scroll;
 	margin-left: -10%;
 	background-color: $White;
 	border-radius: 0.5em;
@@ -165,7 +168,7 @@ body {
 	font-weight: 700;
 	background-color: $Orange;
 	border: none;
-	border-radius: .75em;
+	border-radius: 0.75em;
 	padding: 1.2em 0;
 }
 
@@ -321,8 +324,35 @@ body {
 	flex-direction: column;
 	gap: 2em;
 
+	.selected-img-box {
+		position: relative;
+
+		.selected-img {
+			cursor: pointer;
+		}
+	}
+
 	img {
 		border-radius: 0.8em;
+	}
+
+	.prev-arrow,
+	.next-arrow {
+		cursor: pointer;
+		position: absolute;
+		display: block;
+		background-color: rgba(255, 255, 255, 0.438);
+		filter: brightness(100);
+		padding: 0.8em 1em;
+		border-radius: 100vw;
+		top: 50%;
+	}
+
+	.prev-arrow {
+		left: 1em;
+	}
+	.next-arrow {
+		right: 1em;
 	}
 }
 

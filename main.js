@@ -125,3 +125,71 @@ function showRelatedCartElement() {
 // be 0 so the empty cart message will appear
 // in the cart box.
 showRelatedCartElement();
+
+// Gallery
+const selected_img = document.querySelector(".selected-img");
+const prev = document.querySelector(".prev-arrow");
+const next = document.querySelector(".next-arrow");
+const thumbnails = Array.from(document.querySelectorAll(".thumbnails img"));
+const thumbImgParents = thumbnails.map((th) => th.parentElement);
+let curr_img_index = 1;
+
+prev.addEventListener("click", showPrev);
+next.addEventListener("click", showNext);
+
+function showPrev() {
+	if (curr_img_index == 1) {
+		selected_img.setAttribute("src", `images/image-product-4.jpg`);
+		curr_img_index = 4;
+	} else {
+		selected_img.setAttribute(
+			"src",
+			`images/image-product-${curr_img_index - 1}.jpg`
+		);
+		curr_img_index--;
+	}
+	// Add class to the thumbnail with the same ID as the
+	// currently selected img.
+	updateThumbnail(thumbnails[curr_img_index - 1]);
+}
+
+function showNext() {
+	if (curr_img_index == 4) {
+		selected_img.setAttribute("src", `images/image-product-1.jpg`);
+		curr_img_index = 1;
+	} else {
+		selected_img.setAttribute(
+			"src",
+			`images/image-product-${curr_img_index + 1}.jpg`
+		);
+		curr_img_index++;
+	}
+	updateThumbnail(thumbnails[curr_img_index - 1]);
+}
+
+thumbnails.forEach((th) =>
+	th.addEventListener("click", () => {
+		updateThumbnail(th);
+	})
+);
+
+function updateThumbnail(th) {
+	selectThumbnail(th);
+	addThumbClass(th);
+}
+
+function selectThumbnail(th) {
+	// Get thumbnail ID
+	let thId = th.getAttribute("src").split("-")[2];
+	// Set img with the same ID
+	selected_img.setAttribute("src", `images/image-product-${thId}.jpg`);
+	// Set the current image index to the selected image's index
+	curr_img_index = thId;
+}
+
+function addThumbClass(th) {
+	// Remove active classes
+	thumbImgParents.forEach((item) => item.classList.remove("selected-thumb"));
+	// Add class to the active thumbnail
+	th.parentElement.classList.add("selected-thumb");
+}
