@@ -24,10 +24,14 @@ $desktop: 1440px;
 	gap: 1em;
 }
 
+// ===========
+// | Styling |
+// ===========
 body {
 	color: $Black;
 }
 
+// Nav
 #nav {
 	width: 100%;
 	max-width: $desktop;
@@ -37,94 +41,101 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	border-bottom: 1px solid $Grayish-blue;
+}
 
-	.wrapper {
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
+#burger {
+	display: none;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.nav-links {
+	list-style: none;
+	display: flex;
+	gap: 1.5em;
+
+	a {
+		position: relative;
+		display: block;
+		text-decoration: none;
+		padding: 2em 0;
+		color: $Dark-grayish-blue;
+		font-size: 1.125rem;
 	}
-
-	.nav-links {
-		list-style: none;
-		display: flex;
-		gap: 1.5em;
-
-		a {
-			position: relative;
-			display: block;
-			text-decoration: none;
-			padding: 2em 0;
-			color: $Dark-grayish-blue;
-			font-size: 1.125rem;
-		}
-		a:hover,
-		a:focus {
-			color: $Black;
-		}
-		a:hover::after,
-		a:focus::after {
-			content: "";
-			display: inline-block;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			height: 3px;
-			background-color: $Orange;
-		}
+	a:hover,
+	a:focus {
+		color: $Black;
 	}
-
-	.cart-img {
-		min-width: 5.6em;
-		cursor: pointer;
-		padding: 2em;
-	}
-
-	.cart-box {
-		.cart {
-			font-size: 0.7rem;
-			width: 100%;
-			max-width: 20em;
-			background-color: $White;
-			border-radius: 0.5em;
-			position: absolute;
-			margin-left: -12em;
-			visibility: hidden;
-			box-shadow: 0px 10px 10px 5px hsla(0, 0%, 0%, 0.137);
-
-			.title {
-				padding: 1em;
-				border-bottom: 1px solid $Grayish-blue;
-			}
-
-			.cart-items {
-				min-height: 12em;
-				display: grid;
-				place-items: center;
-
-				.empty {
-					text-align: center;
-				}
-			}
-		}
-
-		&:hover .cart {
-			visibility: visible;
-		}
-	}
-
-	.profile-img {
-		border-radius: 100vw;
-		max-width: 3em;
-		cursor: pointer;
-	}
-
-	.profile-img:hover,
-	.profile-img:focus {
-		outline: 2px solid $Orange;
+	a:hover::after,
+	a:focus::after {
+		content: "";
+		display: inline-block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		background-color: $Orange;
 	}
 }
 
+// Cart
+.cart-img {
+	flex-basis: 5.6em;
+	cursor: pointer;
+	padding: 1.4em;
+}
+
+.cart-box {
+	&:hover .cart {
+		visibility: visible;
+	}
+}
+
+.cart {
+	font-size: 0.7rem;
+	width: 100%;
+	max-width: 20em;
+	background-color: $White;
+	border-radius: 0.5em;
+	position: absolute;
+	margin-left: -12em;
+	visibility: hidden;
+	box-shadow: 0px 10px 10px 5px hsla(0, 0%, 0%, 0.137);
+
+	.title {
+		padding: 1em;
+		border-bottom: 1px solid $Grayish-blue;
+	}
+
+	.cart-items {
+		min-height: 12em;
+		display: grid;
+		place-items: center;
+
+		.empty {
+			text-align: center;
+		}
+	}
+}
+
+// Profile
+.profile-img {
+	border-radius: 100vw;
+	max-width: 3em;
+	cursor: pointer;
+}
+
+.profile-img:hover,
+.profile-img:focus {
+	outline: 2px solid $Orange;
+}
+
+// Main
 #main {
 	width: 100%;
 	max-width: $desktop;
@@ -132,141 +143,208 @@ body {
 	flex-direction: column;
 	margin: 5em 0;
 	padding: 0 2em;
+}
+
+// Product
+.product {
+	display: flex;
+	align-items: center;
+	gap: 10vw;
+
+	& > * {
+		max-width: 30em;
+	}
+}
+
+.product-info {
+	flex: 1;
+	display: grid;
+	gap: 2em;
+}
+
+.product-producer {
+	color: $Orange;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.product-title {
+	font-size: 3rem;
+}
+
+.product-desc {
+	color: $Dark-grayish-blue;
+	line-height: 1.6em;
+}
+
+.price {
+	font-size: 1.5rem;
+
+	.sale {
+		color: $Orange;
+		background-color: $Pale-orange;
+		font-size: 0.9rem;
+		padding: 0.2em 0.6em;
+		border-radius: 0.5em;
+		vertical-align: top;
+	}
+}
+
+.old-price {
+	color: $Grayish-blue;
+	text-decoration: line-through;
+	font-weight: 700;
+	font-size: 0.9rem;
+}
+
+// Amount control and add item button
+.controls {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+
+.amount-control {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	background-color: $Light-grayish-blue;
+	border-radius: 0.5em;
+	flex-grow: 1;
+
+	.minus,
+	.plus {
+		min-width: 2.5em;
+		display: block;
+		padding: 0.8em;
+		cursor: pointer;
+
+		&:hover {
+			opacity: 0.6;
+		}
+	}
+	.amount {
+		padding: 0 1.4em;
+	}
+}
+
+.add-item-btn {
+	background-color: $Orange;
+	border-radius: 0.75em;
+	border: none;
+	color: $White;
+	padding: 1em 5em;
+	font-size: 1rem;
+	cursor: pointer;
+	box-shadow: 0px 12px 40px -12px $Orange;
+	flex-grow: 1;
+
+	&:hover {
+		opacity: 0.7;
+	}
+
+	img {
+		margin-right: 0.8em;
+		display: inline;
+		filter: brightness(5);
+		max-width: 1em;
+	}
+}
+
+// Gallery
+.product-gallery {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+
+	img {
+		border-radius: 0.8em;
+	}
+}
+
+.thumbnails {
+	display: flex;
+	justify-content: space-between;
+	gap: 2em;
+	overflow: none;
+
+	.selected-thumb {
+		border-radius: 0.8em;
+		border: 2px solid $Orange;
+
+		img {
+			opacity: 0.2;
+		}
+	}
+
+	img {
+		cursor: pointer;
+		user-select: none;
+		-webkit-user-drag: none;
+	}
+	img:hover {
+		opacity: 0.5;
+	}
+}
+
+// Mobile
+@media screen and (max-width: 50em) {
+	#nav {
+		padding: 0 1em;
+		gap: 0;
+	}
+
+	.wrapper {
+		gap: 1em;
+	}
+
+	#burger {
+		display: block;
+	}
+
+	#main {
+		margin: 0 0 5em 0;
+		padding: 0;
+	}
 
 	.product {
+		width: 100%;
+		flex-direction: column;
+		gap: 2em;
+	}
+
+	.product-gallery {
+		max-width: 100%;
+
+		img {
+			border-radius: 0;
+		}
+
+		.thumbnails {
+			display: none;
+		}
+	}
+
+	.product-info {
+		width: 100%;
+		max-width: 90%;
+
+		& > * {
+			max-width: 100%;
+		}
+	}
+
+	.price-box {
 		display: flex;
-		align-items: center;
-		gap: 8em;
+		justify-content: space-between;
+	}
+}
 
-		.product-gallery {
-			flex: 1;
-			display: flex;
-			flex-direction: column;
-			gap: 2em;
-
-			.thumbnails {
-				display: flex;
-				justify-content: space-between;
-				gap: 2em;
-				overflow: none;
-
-				.selected-thumb {
-					border-radius: 0.8em;
-					border: 2px solid $Orange;
-
-					img {
-						opacity: 0.2;
-					}
-				}
-
-				img {
-					cursor: pointer;
-					user-select: none;
-					-webkit-user-drag: none;
-				}
-				img:hover {
-					opacity: 0.5;
-				}
-			}
-
-			img {
-				border-radius: 0.8em;
-			}
-		}
-
-		.product-info {
-			flex: 1;
-			display: grid;
-			gap: 2em;
-
-			& > * {
-				max-width: 30em;
-			}
-
-			.product-producer {
-				color: $Orange;
-				font-size: 0.75rem;
-				text-transform: uppercase;
-				letter-spacing: 0.1em;
-			}
-
-			.product-title {
-				font-size: 3rem;
-			}
-
-			.product-desc {
-				color: $Dark-grayish-blue;
-				line-height: 1.6em;
-			}
-
-			.price {
-				font-size: 1.5rem;
-
-				.sale {
-					color: $Orange;
-					background-color: $Pale-orange;
-					font-size: 0.9rem;
-					padding: 0.2em 0.6em;
-					border-radius: 0.5em;
-					vertical-align: top;
-				}
-			}
-			.old-price {
-				color: $Grayish-blue;
-				text-decoration: line-through;
-				font-weight: 700;
-				font-size: 0.9rem;
-			}
-
-			.controls {
-				display: flex;
-				align-items: stretch;
-				gap: 1em;
-
-				.amount-control {
-					display: flex;
-					align-items: center;
-					background-color: $Light-grayish-blue;
-					border-radius: 0.5em;
-
-					.minus,
-					.plus {
-						min-width: 2.5em;
-						display: block;
-						padding: 0.8em;
-						cursor: pointer;
-
-						&:hover {
-							opacity: .6;
-						}
-					}
-					.amount {
-						padding: 0 1.4em;
-					}
-				}
-
-				.add-item-btn {
-					background-color: $Orange;
-					border-radius: 0.75em;
-					border: none;
-					color: $White;
-					padding: 1em 5em;
-					font-size: 1rem;
-					cursor: pointer;
-					box-shadow: 0px 12px 40px -12px $Orange;
-
-					&:hover {
-						opacity: .7;
-					}
-
-					img {
-						margin-right: 0.8em;
-						display: inline;
-						filter: brightness(5);
-						max-width: 1em;
-					}
-				}
-			}
-		}
+@media screen and (max-width: $desktop) {
+	#nav {
+		padding: 0 1.5em;
 	}
 }
