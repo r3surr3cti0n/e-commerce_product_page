@@ -96,14 +96,15 @@ body {
 	}
 }
 
+// Max-width and margin-left is tricky
 .cart {
 	font-size: 0.7rem;
 	width: 100%;
-	max-width: 20em;
+	max-width: 20%;
+	margin-left: -10%;
 	background-color: $White;
 	border-radius: 0.5em;
 	position: absolute;
-	margin-left: -12em;
 	visibility: hidden;
 	box-shadow: 0px 10px 10px 5px hsla(0, 0%, 0%, 0.137);
 
@@ -111,16 +112,61 @@ body {
 		padding: 1em;
 		border-bottom: 1px solid $Grayish-blue;
 	}
+}
 
-	.cart-items {
-		min-height: 12em;
-		display: grid;
-		place-items: center;
+.cart-items {
+	min-height: 12em;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
+	// place-items: center;
+	padding: 2em 1.5em;
+}
 
-		.empty {
-			text-align: center;
-		}
+.empty {
+	text-align: center;
+}
+
+.cart-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	gap: 1em;
+
+	.item-img {
+		max-width: 4em;
+		border-radius: 0.5em;
 	}
+
+	.item-info {
+		color: $Dark-grayish-blue;
+		font-size: 1.125rem;
+		display: flex;
+		gap: 1em;
+	}
+
+	.item-final {
+		font-weight: 700;
+		color: $Black;
+	}
+
+	.delete-img {
+		max-height: 2em;
+		cursor: pointer;
+	}
+}
+
+.checkout-btn {
+	cursor: pointer;
+	color: $White;
+	font-size: 1rem;
+	font-weight: 700;
+	background-color: $Orange;
+	border: none;
+	border-radius: .75em;
+	padding: 1.2em 0;
 }
 
 // Profile
@@ -142,14 +188,14 @@ body {
 	display: flex;
 	flex-direction: column;
 	margin: 5em 0;
-	padding: 0 2em;
 }
 
 // Product
 .product {
 	display: flex;
 	align-items: center;
-	gap: 10vw;
+	justify-content: space-evenly;
+	gap: 5em;
 
 	& > * {
 		max-width: 30em;
@@ -226,7 +272,22 @@ body {
 		}
 	}
 	.amount {
+		max-width: 100px;
 		padding: 0 1.4em;
+		outline: none;
+		border: none;
+		background-color: transparent;
+		text-align: center;
+		font-size: 1.2rem;
+		font-weight: 700;
+		-moz-appearance: textfield;
+
+		// Hide increment/decrement arrows
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
 	}
 }
 
@@ -290,6 +351,12 @@ body {
 	}
 }
 
+@media screen and (min-width: 52em) {
+	.product {
+		padding: 0 2em;
+	}
+}
+
 // Mobile
 @media screen and (max-width: 52em) {
 	#nav {
@@ -341,7 +408,6 @@ body {
 		max-width: 95%;
 		right: 2.5%;
 		margin-top: 1em;
-
 	}
 
 	#main {

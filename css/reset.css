@@ -28,7 +28,8 @@ body {
           align-items: center;
 }
 
-a {
+a, input {
+  font-size: inherit;
   font-family: inherit;
 }
 
