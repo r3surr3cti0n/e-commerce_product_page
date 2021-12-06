@@ -368,7 +368,7 @@ body {
   opacity: 0.5;
 }
 
-@media screen and (max-width: 50em) {
+@media screen and (max-width: 52em) {
   #nav {
     padding: 0 1em;
     gap: 0;
@@ -378,6 +378,45 @@ body {
   }
   #burger {
     display: block;
+    z-index: 200;
+  }
+  .nav-links {
+    position: fixed;
+    height: 100%;
+    width: 70vw;
+    max-width: 20em;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 2em;
+    background-color: white;
+    padding: 5em 0 0 1.5em;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    -webkit-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .nav-links a {
+    opacity: 1;
+    padding: 0;
+    color: black;
+    font-weight: 700;
+  }
+  .nav-links a:hover::after {
+    content: none;
+  }
+  .menu-active {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  .cart {
+    max-width: 95%;
+    right: 2.5%;
+    margin-top: 1em;
   }
   #main {
     margin: 0 0 5em 0;

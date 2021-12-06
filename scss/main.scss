@@ -291,7 +291,7 @@ body {
 }
 
 // Mobile
-@media screen and (max-width: 50em) {
+@media screen and (max-width: 52em) {
 	#nav {
 		padding: 0 1em;
 		gap: 0;
@@ -303,6 +303,45 @@ body {
 
 	#burger {
 		display: block;
+		z-index: 200;
+	}
+
+	.nav-links {
+		position: fixed;
+		height: 100%;
+		width: 70vw;
+		max-width: 20em;
+		z-index: 100;
+		left: 0;
+		top: 0;
+		flex-direction: column;
+		gap: 2em;
+		background-color: $White;
+		padding: 5em 0 0 1.5em;
+		transform: translateX(-100%);
+		transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+		a {
+			opacity: 1;
+			padding: 0;
+			color: black;
+			font-weight: 700;
+
+			&:hover::after {
+				content: none;
+			}
+		}
+	}
+
+	.menu-active {
+		transform: translateX(0%);
+	}
+
+	.cart {
+		max-width: 95%;
+		right: 2.5%;
+		margin-top: 1em;
+
 	}
 
 	#main {
