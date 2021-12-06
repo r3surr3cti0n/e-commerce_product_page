@@ -51,6 +51,8 @@ function addItemToCart() {
 	displayCartItems();
 	// Give feedback to the user about their action
 	alert(`${newItem.amount} item(s) has been added to your cart!`);
+	// Reset the to amount
+	amount.value = 1;
 }
 
 function getAmount() {
