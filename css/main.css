@@ -68,7 +68,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 2px solid #b6bcc8;
+  border-bottom: 1px solid #b6bcc8;
 }
 
 #nav .wrapper {
@@ -164,5 +164,191 @@ body {
 #nav .profile-img:hover,
 #nav .profile-img:focus {
   outline: 2px solid #ff7d1a;
+}
+
+#main {
+  width: 100%;
+  max-width: 1440px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 5em 0;
+  padding: 0 2em;
+}
+
+#main .product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8em;
+}
+
+#main .product .product-gallery {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2em;
+}
+
+#main .product .product-gallery .thumbnails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 2em;
+  overflow: none;
+}
+
+#main .product .product-gallery .thumbnails .selected-thumb {
+  border-radius: 0.8em;
+  border: 2px solid #ff7d1a;
+}
+
+#main .product .product-gallery .thumbnails .selected-thumb img {
+  opacity: 0.2;
+}
+
+#main .product .product-gallery .thumbnails img {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-user-drag: none;
+}
+
+#main .product .product-gallery .thumbnails img:hover {
+  opacity: 0.5;
+}
+
+#main .product .product-gallery img {
+  border-radius: 0.8em;
+}
+
+#main .product .product-info {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -ms-grid;
+  display: grid;
+  gap: 2em;
+}
+
+#main .product .product-info > * {
+  max-width: 30em;
+}
+
+#main .product .product-info .product-producer {
+  color: #ff7d1a;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+#main .product .product-info .product-title {
+  font-size: 3rem;
+}
+
+#main .product .product-info .product-desc {
+  color: #68707d;
+  line-height: 1.6em;
+}
+
+#main .product .product-info .price {
+  font-size: 1.5rem;
+}
+
+#main .product .product-info .price .sale {
+  color: #ff7d1a;
+  background-color: #ffede0;
+  font-size: 0.9rem;
+  padding: 0.2em 0.6em;
+  border-radius: 0.5em;
+  vertical-align: top;
+}
+
+#main .product .product-info .old-price {
+  color: #b6bcc8;
+  text-decoration: line-through;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+#main .product .product-info .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 1em;
+}
+
+#main .product .product-info .controls .amount-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f7f8fd;
+  border-radius: 0.5em;
+}
+
+#main .product .product-info .controls .amount-control .minus,
+#main .product .product-info .controls .amount-control .plus {
+  min-width: 2.5em;
+  display: block;
+  padding: 0.8em;
+  cursor: pointer;
+}
+
+#main .product .product-info .controls .amount-control .minus:hover,
+#main .product .product-info .controls .amount-control .plus:hover {
+  opacity: .6;
+}
+
+#main .product .product-info .controls .amount-control .amount {
+  padding: 0 1.4em;
+}
+
+#main .product .product-info .controls .add-item-btn {
+  background-color: #ff7d1a;
+  border-radius: 0.75em;
+  border: none;
+  color: white;
+  padding: 1em 5em;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 12px 40px -12px #ff7d1a;
+          box-shadow: 0px 12px 40px -12px #ff7d1a;
+}
+
+#main .product .product-info .controls .add-item-btn:hover {
+  opacity: .7;
+}
+
+#main .product .product-info .controls .add-item-btn img {
+  margin-right: 0.8em;
+  display: inline;
+  -webkit-filter: brightness(5);
+          filter: brightness(5);
+  max-width: 1em;
 }
 /*# sourceMappingURL=main.css.map */
