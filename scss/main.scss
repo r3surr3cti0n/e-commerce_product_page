@@ -1,1 +1,126 @@
 @import "./reset.scss";
+
+// Colors
+$Orange: hsl(26, 100%, 55%);
+$Pale-orange: hsl(25, 100%, 94%);
+$Very-dark-blue: hsl(220, 13%, 13%);
+$Dark-grayish-blue: hsl(219, 9%, 45%);
+$Grayish-blue: hsl(220, 14%, 75%);
+$Light-grayish-blue: hsl(223, 64%, 98%);
+$White: hsl(0, 0%, 100%);
+$Black: hsl(0, 0%, 0%);
+
+// Other
+$desktop: 1440px;
+
+.gray {
+	color: $Grayish-blue;
+}
+
+.gap-4 {
+	gap: 4em;
+}
+.gap-1 {
+	gap: 1em;
+}
+
+body {
+	color: $Black;
+}
+
+#nav {
+	width: 100%;
+	max-width: $desktop;
+	display: flex;
+	gap: 2em;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 2px solid $Grayish-blue;
+
+	.wrapper {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.nav-links {
+		list-style: none;
+		display: flex;
+		gap: 1.5em;
+
+		a {
+			position: relative;
+			display: block;
+			text-decoration: none;
+			padding: 2em 0;
+			color: $Dark-grayish-blue;
+			font-size: 1.125rem;
+		}
+		a:hover,
+		a:focus {
+			color: $Black;
+		}
+		a:hover::after,
+		a:focus::after {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			background-color: $Orange;
+		}
+	}
+
+	.cart-img {
+		min-width: 5.6em;
+		cursor: pointer;
+		padding: 2em;
+	}
+
+	.cart-box {
+		.cart {
+			font-size: 0.7rem;
+			width: 100%;
+			max-width: 20em;
+			background-color: $White;
+			border-radius: 0.5em;
+			position: absolute;
+			margin-left: -12em;
+			visibility: hidden;
+			box-shadow: 0px 10px 10px 5px hsla(0, 0%, 0%, 0.137);
+
+			.title {
+				padding: 1em;
+				border-bottom: 1px solid $Grayish-blue;
+			}
+
+			.cart-items {
+				min-height: 12em;
+				display: grid;
+				place-items: center;
+
+				.empty {
+					text-align: center;
+				}
+			}
+		}
+
+		&:hover .cart {
+			visibility: visible;
+		}
+	}
+
+	.profile-img {
+		border-radius: 100vw;
+		max-width: 3em;
+		cursor: pointer;
+	}
+
+	.profile-img:hover,
+	.profile-img:focus {
+		outline: 2px solid $Orange;
+	}
+}
